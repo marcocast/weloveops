@@ -10,11 +10,7 @@
 <g:form action="search" >
     <label for="searchText">text to search</label>
     <g:textField name="searchText" value=""/>
-    <g:select optionKey="id" optionValue="name"
-          name="pnames" from="${wloProfileInstanceList}" multiple="true" />
-    
-    
-    
+    <g:select optionKey="id" optionValue="name"  name="pnames" from="${wloProfileInstanceList}" multiple="true" />
     <g:submitButton name="execute" value="search" />
 </g:form>
 </body>
