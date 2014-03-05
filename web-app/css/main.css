@@ -38,6 +38,7 @@ html * {
 
 body {
 	background: #ffffff;
+	vertical-align: top;
 	color: #333333;
 	margin: 0 auto;
 	max-width: 100%;
@@ -263,8 +264,8 @@ select[multiple] {
 }
 
 textarea {
-	width: 100%;
-	height: 100%;
+	width: 90%;
+	height: 90%;
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;
 }
