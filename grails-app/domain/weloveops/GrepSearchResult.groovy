@@ -2,7 +2,9 @@ package weloveops;
 
 class GrepSearchResult {
 
-	String result;
+
+	static hasMany = [results: GrepSearchSingleProfileResult]
+	String result
 	long totalMatches;
 
 	static constraints =

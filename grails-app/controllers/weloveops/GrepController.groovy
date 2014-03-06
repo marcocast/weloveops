@@ -7,6 +7,7 @@ import static org.grep4j.core.fluent.Dictionary.on
 
 import org.grep4j.core.model.Profile
 import org.grep4j.core.request.GrepExpression
+import org.grep4j.core.result.GrepResult
 import org.grep4j.core.result.GrepResults
 
 class GrepController {
@@ -30,6 +31,17 @@ class GrepController {
 		GrepResults results = grep(grepExpression, on(profiles));
 
 		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
+
+
+		for(GrepResult grepResult : results){
+			GrepSearchSingleProfileResult singleResult = new GrepSearchSingleProfileResult()
+			singleResult.result = grepResult.text
+			singleResult.name = grepResult.getProfileName()
+			singleResult.totalMatches = grepResult.totalLines()
+
+			grepsearchResult.addToResults(singleResult)
+		}
+
 
 		grepsearchResult.save()
 
