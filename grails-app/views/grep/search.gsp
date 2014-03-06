@@ -5,8 +5,8 @@
 		<meta name="layout" content="main">
 	</head>
     <body>
-      <div role="main">
-			<g:textArea name="result" value="${grepsearchResult.result}" rows="${grepsearchResult.totalMatches}" cols="1"/>
+      <div role="main" class="result">
+			<g:textArea  name="result" value="${grepsearchResult.result}" rows="${grepsearchResult.totalMatches}" cols="1"/>
 	  </div>
 	  
 

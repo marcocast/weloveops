@@ -5,27 +5,19 @@ import static org.grep4j.core.Grep4j.grep
 import static org.grep4j.core.fluent.Dictionary.on
 
 import org.grep4j.core.model.Profile
-import org.grep4j.core.model.ProfileBuilder
 import org.grep4j.core.result.GrepResults
 
 class GrepController {
 
+	weloveops.ProfileConverterService profileConverterService;
+
 	def search() {
 
-		def checkedBooks = params.list("pnames")
-		def selectedBooks = WloProfile.getAll(checkedBooks)
+		def selectedWloProfiles = WloProfile.getAll(params.list("pnames"))
 
+		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
-
-		WloProfile profile = selectedBooks[0]
-
-		Profile localProfile = ProfileBuilder.newBuilder()
-				.name(profile.name)
-				.filePath(profile.path)
-				.onLocalhost()
-				.build();
-
-		GrepResults results = grep(constantExpression(params.searchText), on(localProfile));
+		GrepResults results = grep(constantExpression(params.searchText), on(profiles));
 
 		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
 
@@ -36,7 +28,6 @@ class GrepController {
 
 
 	def index() {
-
 		params.max = 100
 		respond WloProfile.list(params), model:[wloProfileInstanceCount: WloProfile.count()]
 	}

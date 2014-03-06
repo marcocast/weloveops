@@ -101,7 +101,7 @@
 			<h1>Here is what you can do</h1>
 			<ol>
 				<li><g:link controller="grep">Search your stuff</g:link></li>		
-				<li><g:link controller="grep">Schedule searches and relax</g:link></li>
+				<li><g:link controller="grep">Schedule jobs and relax</g:link></li>
 				<li><g:link controller="grep">See some cool graph</g:link></li>
 				<li><g:link controller="grep">Keep an eye on multiple profiles</g:link></li>
 				<li><g:link controller="wloProfile">Create some profile</g:link></li>

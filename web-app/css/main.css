@@ -248,11 +248,22 @@ label {
 	margin: 0 0.25em 0 0;
 }
 
-input, select, textarea {
+input, select {
 	background-color: #fcfcfc;
-	border: 5px solid #cccccc;
+	border: 1px solid #cccccc;
 	font-size: 1em;
 	padding: 0.2em 0.4em;
+}
+
+textarea {
+	background-color: #fcfcfc;
+	border: 1px solid #cccccc;
+	font-size: small;
+	padding: 0.2em 0.4em;
+	width: 90%;
+	height: 90%;
+	overflow: auto; /* IE always renders vertical scrollbar without this */
+	vertical-align: top;
 }
 
 select {
@@ -263,12 +274,6 @@ select[multiple] {
 	vertical-align: top;
 }
 
-textarea {
-	width: 90%;
-	height: 90%;
-	overflow: auto; /* IE always renders vertical scrollbar without this */
-	vertical-align: top;
-}
 
 input[type=checkbox], input[type=radio] {
 	background-color: transparent;
