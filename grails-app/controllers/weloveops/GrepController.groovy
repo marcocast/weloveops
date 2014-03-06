@@ -2,9 +2,11 @@ package weloveops;
 
 import static org.grep4j.core.Grep4j.constantExpression
 import static org.grep4j.core.Grep4j.grep
+import static org.grep4j.core.Grep4j.regularExpression
 import static org.grep4j.core.fluent.Dictionary.on
 
 import org.grep4j.core.model.Profile
+import org.grep4j.core.request.GrepExpression
 import org.grep4j.core.result.GrepResults
 
 class GrepController {
@@ -17,7 +19,15 @@ class GrepController {
 
 		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
-		GrepResults results = grep(constantExpression(params.searchText), on(profiles));
+		GrepExpression grepExpression;
+
+		if (params.regex){
+			grepExpression = regularExpression(params.searchText)
+		}else{
+			grepExpression = constantExpression(params.searchText)
+		}
+
+		GrepResults results = grep(grepExpression, on(profiles));
 
 		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
 
