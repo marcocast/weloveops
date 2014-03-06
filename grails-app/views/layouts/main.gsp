@@ -95,7 +95,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'logo.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'weloveopslogo.jpg')}" alt="Grails"/></a></div>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Here is what you can do</h1>
