@@ -10,22 +10,43 @@ import org.grep4j.core.request.GrepExpression
 import org.grep4j.core.result.GrepResult
 import org.grep4j.core.result.GrepResults
 
-class GrepController {
+class SearchController {
 
 	weloveops.ProfileConverterService profileConverterService;
+	weloveops.SearchParamsService searchParamsService;
 
 	def search() {
 
-		def selectedWloProfiles = WloProfile.getAll(params.list("pnames"))
+		if(params.savesearch){
+			searchParamsService.saveSearchParams(params)
+		}
+
+		boolean regex = false
+		def selectedWloProfiles = null
+		String searchText = null
+
+
+		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
+			def selectedSearchParam = SearchParams.getAll(params.list("searchnames")).first()
+			regex = selectedSearchParam.regex
+			selectedWloProfiles = selectedSearchParam.profiles
+			searchText = selectedSearchParam.text
+		}else{
+			regex = params.regex
+			selectedWloProfiles = WloProfile.getAll(params.list("pnames"))
+			searchText = params.searchText
+		}
+
+
 
 		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
 		GrepExpression grepExpression;
 
-		if (params.regex){
-			grepExpression = regularExpression(params.searchText)
+		if (regex){
+			grepExpression = regularExpression(searchText)
 		}else{
-			grepExpression = constantExpression(params.searchText)
+			grepExpression = constantExpression(searchText)
 		}
 
 		GrepResults results = grep(grepExpression, on(profiles));
@@ -50,7 +71,6 @@ class GrepController {
 
 
 	def index() {
-		params.max = 100
 		respond WloProfile.list(params), model:[wloProfileInstanceCount: WloProfile.count()]
 	}
 }

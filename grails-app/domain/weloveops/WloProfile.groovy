@@ -13,6 +13,6 @@ class WloProfile {
 		url nullable: false, blank: false
 		path nullable: true
 		password nullable: true
-		user validator: { val, obj -> obj.path.equalsIgnoreCase("localhost")}
+		user nullable: true
 	}
 }
