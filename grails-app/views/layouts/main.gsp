@@ -102,7 +102,7 @@
 			<ol>
 				<li><g:link controller="search">Search your stuff</g:link></li>		
 				<li><g:link controller="search">Schedule jobs and relax</g:link></li>
-				<li><g:link controller="search">See some cool graph</g:link></li>
+				<li><g:link controller="graph">See some cool graph</g:link></li>
 				<li><g:link controller="search">Keep an eye on multiple profiles</g:link></li>
 				<li><g:link controller="wloProfile">Create some profile</g:link></li>
 			</ol>
