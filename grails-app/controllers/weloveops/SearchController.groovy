@@ -15,29 +15,17 @@ class SearchController {
 	weloveops.ProfileConverterService profileConverterService;
 	weloveops.SearchParamsService searchParamsService;
 
-	def search() {
 
-		if(params.savesearch){
-			searchParamsService.saveSearchParams(params)
-		}
+	def executeSearch(){
 
 		boolean regex = false
 		def selectedWloProfiles = null
 		String searchText = null
 
 
-		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
-			def selectedSearchParam = SearchParams.getAll(params.list("searchnames")).first()
-			regex = selectedSearchParam.regex
-			selectedWloProfiles = selectedSearchParam.profiles
-			searchText = selectedSearchParam.text
-		}else{
-			regex = params.regex
-			selectedWloProfiles = WloProfile.getAll(params.list("pnames"))
-			searchText = params.searchText
-		}
-
-
+		regex = params.regex
+		selectedWloProfiles = WloProfile.findByName(params.profileName)
+		searchText = params.text
 
 		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
@@ -63,10 +51,23 @@ class SearchController {
 			grepsearchResult.addToResults(singleResult)
 		}
 
-
 		grepsearchResult.save()
 
-		[ grepsearchResult:grepsearchResult ]
+
+		render (template: "result", model: [grepsearchResult: grepsearchResult])
+	}
+
+
+
+	def search() {
+
+		SearchParams searchParams = searchParamsService.mapToSearchParams(params)
+
+		if(params.savesearch){
+			searchParams.save()
+		}
+
+		[ searchParams:searchParams ]
 	}
 
 

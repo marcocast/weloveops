@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<g:javascript library="jquery" />
 <title>result page</title>
 <meta name="layout" content="main">
 </head>
 <body>
+
 	<div class="nav" role="navigation">
+		<table class="result">
+			<g:each in="${searchParams.profiles}" status="i" var="profile">
+				<script>
+			  	<g:remoteFunction controller="search" action="executeSearch" update="resultBox${profile.name},total" 
+				  	params="'name=${searchParams.name}&text=${searchParams.text}&regex=${searchParams.regex}&profileName=${profile.name}'+ '&searchParams=${searchParams}'"/>
+        	  </script>
+				<tr>
+					<td><label for="result">Result for profile : ${profile.name}</label></td>
+				</tr>
+				<tr>
+					<td id="resultBox${profile.name}"><img src="${createLinkTo(dir:'images',file:'ajax-loader.gif')}"
+						alt="Loading..." width="200" height="30" /></td>
+				</tr>
 
-		<g:each in="${grepsearchResult.results}" status="i" var="singleResult">
-			<div role="main" class="result">
-				<table class="result">
-					<tr>
-						<td><label for="result">On Profile ${singleResult.name}
-								found ${singleResult.totalMatches} lines
-						</label></td>
-					</tr>
-					<tr>
-						<td><g:textArea name="result" value="${singleResult.result}"
-								rows="${singleResult.totalMatches}" cols="1" /></td>
-					</tr>
-				</table>
-
-
-			</div>
-		</g:each>
+				
+			</g:each>
+		</table>
 	</div>
 </body>
 </html>

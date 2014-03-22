@@ -50,6 +50,7 @@ grails.project.dependency.resolution = {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 		// runtime 'mysql:mysql-connector-java:5.1.27'
 		// runtime 'org.postgresql:postgresql:9.3-1100-jdbc41'
+
 	}
 
 	plugins {
@@ -61,6 +62,7 @@ grails.project.dependency.resolution = {
 		compile ":cache:1.1.1"
 		compile ":google-visualization:0.6.2"
 		compile ":zing-chart:0.1"
+		compile ":jquery-ui:1.10.3"
 
 		// plugins needed at runtime but not for compilation
 		runtime ":hibernate:3.6.10.8" // or ":hibernate4:4.3.1.1"
@@ -68,6 +70,7 @@ grails.project.dependency.resolution = {
 		runtime ":jquery:1.11.0.1"
 		runtime ":resources:1.2.1"
 		runtime ":zing-chart:0.1"
+		runtime ":prototype:1.0"
 
 		// Uncomment these (or add new ones) to enable additional resources capabilities
 		//runtime ":zipped-resources:1.0.1"

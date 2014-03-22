@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 class SearchParamsService {
 
 
-	def saveSearchParams(params) {
+	def mapToSearchParams(params){
 
 		SearchParams searchParams = new SearchParams(name: params.searchname,regex: params.regex, text: params.searchText)
 
@@ -14,8 +14,6 @@ class SearchParamsService {
 			searchParams.addToProfiles(profile)
 		}
 
-
-
-		searchParams.save();
+		return searchParams
 	}
 }
