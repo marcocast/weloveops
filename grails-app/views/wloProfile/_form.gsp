@@ -16,7 +16,7 @@
 		<g:message code="wloProfile.password.label" default="Password" />
 		
 	</label>
-	<g:textField name="password" value="${wloProfileInstance?.password}"/>
+	<g:passwordField name="password" value="${wloProfileInstance?.password}"/>
 
 </div>
 

@@ -53,7 +53,6 @@ class SearchController {
 
 		grepsearchResult.save()
 
-
 		render (template: "result", model: [grepsearchResult: grepsearchResult])
 	}
 

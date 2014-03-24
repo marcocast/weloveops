@@ -114,6 +114,7 @@ p {
 		<h1>Here is what you can do</h1>
 		<ol>
 			<li><g:link controller="search">Search your stuff</g:link></li>
+			<li><g:link controller="grepSearchResult">Already searched stuff</g:link></li>
 			<li><g:link controller="search">Schedule jobs and relax</g:link></li>
 			<li><g:link controller="graph">See some cool graph</g:link></li>
 			<li><g:link controller="search">Keep an eye on multiple profiles</g:link></li>

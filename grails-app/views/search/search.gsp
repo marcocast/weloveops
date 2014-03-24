@@ -21,8 +21,6 @@
 					<td id="resultBox${profile.name}"><img src="${createLinkTo(dir:'images',file:'ajax-loader.gif')}"
 						alt="Loading..." width="200" height="30" /></td>
 				</tr>
-
-				
 			</g:each>
 		</table>
 	</div>

@@ -35,7 +35,7 @@
 				<li class="fieldcontain">
 					<span id="password-label" class="property-label"><g:message code="wloProfile.password.label" default="Password" /></span>
 					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${wloProfileInstance}" field="password"/></span>
+						<span class="property-value" aria-labelledby="password-label">*********</span>
 					
 				</li>
 				</g:if>

@@ -39,9 +39,12 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${wloProfileInstance.id}">${fieldValue(bean: wloProfileInstance, field: "name")}</g:link></td>
-					
-						<td>${fieldValue(bean: wloProfileInstance, field: "password")}</td>
-					
+						<g:if test="${wloProfileInstance?.password}">
+							<td>*********</td>
+						</g:if>
+						<g:else>
+						     <td></td>
+						</g:else>
 						<td>${fieldValue(bean: wloProfileInstance, field: "path")}</td>
 					
 						<td>${fieldValue(bean: wloProfileInstance, field: "url")}</td>
