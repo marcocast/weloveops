@@ -22,10 +22,10 @@ class SearchController {
 		def selectedWloProfiles = null
 		String searchText = null
 
-
 		regex = params.regex
 		selectedWloProfiles = WloProfile.findByName(params.profileName)
 		searchText = params.text
+
 
 		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
@@ -40,7 +40,8 @@ class SearchController {
 		GrepResults results = grep(grepExpression, on(profiles));
 
 		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
-
+		grepsearchResult.text = searchText
+		grepsearchResult.resultDate = new Date()
 
 		for(GrepResult grepResult : results){
 			GrepSearchSingleProfileResult singleResult = new GrepSearchSingleProfileResult()
@@ -60,10 +61,16 @@ class SearchController {
 
 	def search() {
 
-		SearchParams searchParams = searchParamsService.mapToSearchParams(params)
+		SearchParams searchParams;
 
-		if(params.savesearch){
-			searchParams.save()
+		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
+			searchParams= SearchParams.getAll(params.list("searchnames")).first()
+		}else{
+			searchParams = searchParamsService.mapToSearchParams(params)
+
+			if(params.savesearch){
+				searchParams.save()
+			}
 		}
 
 		[ searchParams:searchParams ]
