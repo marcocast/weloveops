@@ -67,8 +67,7 @@ class SearchController {
 			searchParams= SearchParams.getAll(params.list("searchnames")).first()
 		}else{
 			searchParams = searchParamsService.mapToSearchParams(params)
-
-			if(params.savesearch){
+			if(SearchParams.findByName(searchParams.name) == null){
 				searchParams.save()
 			}
 		}

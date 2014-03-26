@@ -8,10 +8,13 @@ class SearchParamsService {
 
 	def mapToSearchParams(params){
 
-		SearchParams searchParams = new SearchParams(name: params.searchname,regex: params.regex, text: params.searchText)
+		String searchParamName = params.searchText + " on "
+
+		SearchParams searchParams = new SearchParams(name: searchParamName,regex: params.regex, text: params.searchText)
 
 		for(WloProfile profile :  WloProfile.getAll(params.list("pnames"))){
 			searchParams.addToProfiles(profile)
+			searchParams.name += profile.name + " - "
 		}
 
 		return searchParams

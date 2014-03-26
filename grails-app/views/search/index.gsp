@@ -28,25 +28,7 @@
 					<td><label for=pnames>Select an existing Profile(s)</label></td>
 					<td><g:select optionKey="id" optionValue="name" name="pnames"
 							from="${wloProfileInstanceList}" multiple="true" /></td>
-				</tr>
-
-
-				<tr class="odd">
-					<td><label for="savesearch">do you want to save this
-							search?</label></td>
-					<td><g:checkBox name="savesearch" value="${false}" /></td>
-				</tr>
-
-
-
-				<tr class="even">
-					<td><label for="savesearch">i should just appear if
-							you click before :( </label></td>
-					<td><g:textField name="searchname"
-							value="enter search name here" /></td>
-				</tr>
-
-
+				</tr>	
 
 				<tr class="odd">
 					<td><label for="searchnames">Or just select an
