@@ -14,20 +14,21 @@ class GraphController {
 	def graph() {
 	}
 
-	def render = {
+	def execute() {
 		def myDailyActivitiesColumns = [
-			['string', 'Task'],
-			['number', 'Hours per Day']
+			["string", "Task"],
+			["number", "Hours per Day"]
 		]
 		def myDailyActivitiesData = [
-			['Work', 11],
-			['Eat', 2],
-			['Commute', 2],
-			['Watch TV', 2],
-			['Sleep', 7]
+			["Work2", 11],
+			["Eat", 2],
+			["Commute", 2],
+			["Watch TV", 2],
+			["Sleep", 7]
 		]
-		render template: "chart", model: ["myDailyActivitiesColumns": myDailyActivitiesColumns,
-			"myDailyActivitiesData": myDailyActivitiesData]
+
+
+		render template: "chart", model: ["myDailyActivitiesColumns": myDailyActivitiesColumns,	"myDailyActivitiesData": myDailyActivitiesData]
 	}
 
 
