@@ -61,18 +61,7 @@ class SearchController {
 
 	def search() {
 
-		SearchParams searchParams;
-
-		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
-			searchParams= SearchParams.getAll(params.list("searchnames")).first()
-		}else{
-			searchParams = searchParamsService.mapToSearchParams(params)
-			if(SearchParams.findByName(searchParams.name) == null){
-				searchParams.save()
-			}
-		}
-
-		[ searchParams:searchParams ]
+		[ searchParams:searchParamsService.getSearchParam(params) ]
 	}
 
 

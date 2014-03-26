@@ -19,4 +19,20 @@ class SearchParamsService {
 
 		return searchParams
 	}
+
+	def getSearchParam(params) {
+
+		SearchParams searchParams;
+
+		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
+			searchParams= SearchParams.getAll(params.list("searchnames")).first()
+		}else{
+			searchParams = mapToSearchParams(params)
+			if(SearchParams.findByName(searchParams.name) == null){
+				searchParams.save()
+			}
+		}
+
+		return searchParams
+	}
 }
