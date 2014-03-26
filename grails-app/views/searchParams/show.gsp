@@ -37,7 +37,7 @@
 					<span id="profiles-label" class="property-label"><g:message code="searchParams.profiles.label" default="Profiles" /></span>
 					
 						<g:each in="${searchParamsInstance.profiles}" var="p">
-						<span class="property-value" aria-labelledby="profiles-label"><g:link controller="wloProfile" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="profiles-label"><g:link controller="wloProfile" action="show" id="${p.id}">${p.name}</g:link></span>
 						</g:each>
 					
 				</li>

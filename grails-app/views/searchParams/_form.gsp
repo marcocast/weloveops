@@ -16,7 +16,7 @@
 		<g:message code="searchParams.profiles.label" default="Profiles" />
 		
 	</label>
-	<g:select name="profiles" from="${weloveops.WloProfile.list()}" multiple="multiple" optionKey="id" size="5" value="${searchParamsInstance?.profiles*.id}" class="many-to-many"/>
+	<g:select name="profiles" from="${weloveops.WloProfile.list()}" multiple="multiple" optionKey="name" size="5" value="${searchParamsInstance?.profiles*.id}" class="many-to-many"/>
 
 </div>
 
