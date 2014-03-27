@@ -104,8 +104,8 @@ p {
 <body>
 
 	<div id="grailsLogo" role="banner">
-		<a href="http://grails.org"><img
-			src="${resource(dir: 'images', file: 'weloveopslogo.jpg')}"
+		<a href="/"><img
+			src="${resource(dir: 'images', file: 'lastlogo.png')}"
 			alt="Grails" /></a>
 	</div>
 	<a href="#page-body" class="skip"><g:message
