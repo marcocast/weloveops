@@ -10,17 +10,17 @@
 </head>
 <body>
 	<div class="nav" role="navigation">
-	
-			
-	
 
-			<script>
+		<script>
 			  	<g:remoteFunction controller="graph" action="execute" update="thechart" 
 				  	params="'name=${searchParams.name}'"/>
         	  </script>
-					
+
 		<br>
-		<div id="thechart"></div>
+		<div id="thechart">
+			<img src="${createLinkTo(dir:'images',file:'ajax-loader.gif')}"
+				alt="Loading..." width="200" height="30" />
+		</div>
 
 
 

@@ -4,7 +4,8 @@ class GrepSearchSingleProfileResult {
 
 	static belongsTo = [grepSearchResult: GrepSearchResult]
 
-	String name;
+	String profileName;
+	String fileName;
 	String result;
 	long totalMatches;
 

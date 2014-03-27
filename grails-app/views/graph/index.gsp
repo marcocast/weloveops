@@ -1,5 +1,6 @@
 <%@ page import="weloveops.WloProfile"%>
 <%@ page import="weloveops.SearchParams"%>
+<%@ page import="weloveops.GrepSearchResult"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,8 +39,17 @@
 							name="searchnames" from="${SearchParams.list()}" multiple="false" />
 					</td>
 				</tr>
-
+				
+			
 				<tr class="even">
+					<td><label for="resultsnames">Or compare existing results</label></td>
+					<td><g:select optionKey="id" optionValue="${date}"
+							name="resultsnames" from="${GrepSearchResult.list()}" multiple="true" />
+					</td>
+				</tr>
+				
+
+				<tr class="odd">
 					<td colspan="2"><g:submitButton name="graph" value="graph"
 							class="buttons" /></td>
 				</tr>

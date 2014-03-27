@@ -12,7 +12,7 @@
 			<g:each in="${searchParams.profiles}" status="i" var="profile">
 				<script>
 			  	<g:remoteFunction controller="search" action="executeSearch" update="resultBox${profile.name},total" 
-				  	params="'name=${searchParams.name}&text=${searchParams.text}&regex=${searchParams.regex}&profileName=${profile.name}'+ '&searchParams=${searchParams}'"/>
+				  	params="'name=${searchParams.name}&profileName=${profile.name}'"/>
         	  </script>
 				<tr>
 					<td><label for="result">Result for profile : ${profile.name}</label></td>

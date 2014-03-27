@@ -7,6 +7,8 @@ class GrepSearchResult {
 	long totalMatches;
 	String text
 	Date resultDate
+	SearchParams searchParams
+
 
 	static constraints = {
 		result(maxSize: 1000000)

@@ -29,8 +29,6 @@
 					<g:sortableColumn property="resultDate" title="Result date" />
 
 					<g:sortableColumn property="profilesNames" title="Profile Names" />
-					
-					<g:sortableColumn property="searchText" title="Search Text" />
 
 					<g:sortableColumn property="totalMatches"
 						title="${message(code: 'grepSearchResult.totalMatches.label', default: 'Total Matches')}" />
@@ -51,15 +49,16 @@
 							${fieldValue(bean: grepSearchResultInstance, field: "resultDate")}
 						</td>
 
-						<td><g:each in="${grepSearchResultInstance.results}"
-								status="sinlge" var="grepSearchSingleProfileResult">
-								${fieldValue(bean: grepSearchSingleProfileResult, field: "name")}
-							</g:each></td>
-							
 						<td>
-							${fieldValue(bean: grepSearchResultInstance, field: "text")}
-						</td>
+						<g:each in="${grepSearchResultInstance.searchParams}"
+								status="sinlge" var="searchParams">
+								<g:link controller="searchParams" action="show"
+									id="${fieldValue(bean: searchParams, field: "id")}">
+									${fieldValue(bean: searchParams, field: "name")}
+								</g:link>
 
+							</g:each></td>
+													
 						<td>
 							${fieldValue(bean: grepSearchResultInstance, field: "totalMatches")}
 						</td>
