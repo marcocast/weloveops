@@ -9,7 +9,6 @@ class GrepSearchResult {
 	Date resultDate
 	SearchParams searchParams
 
-
 	static constraints = {
 		result(maxSize: 1000000)
 		resultDate defaultValue: "now()"

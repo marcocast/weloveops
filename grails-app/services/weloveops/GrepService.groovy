@@ -27,7 +27,6 @@ class GrepService {
 		regex = searchParams.regex
 
 		if(params.profileName != null && params.profileName != ""){
-			print "params.profileNameparams.profileNameparams.profileName"
 			selectedWloProfiles = WloProfile.findByName(params.profileName)
 		}else{
 			selectedWloProfiles =  searchParams.profiles

@@ -39,18 +39,28 @@
 							name="searchnames" from="${SearchParams.list()}" multiple="false" />
 					</td>
 				</tr>
-				
+
+				<tr class="even">
+					<td colspan="2"><g:submitButton name="graph" value="graph"
+							class="buttons" /></td>
+				</tr>
+
+			</table>
+
+		</g:form>
+		<g:form action="graphOnResults" id="formGraphOnResuls">
+			<table>
 			
 				<tr class="even">
 					<td><label for="resultsnames">Or compare existing results</label></td>
-					<td><g:select optionKey="id" optionValue="${date}"
+					<td><g:select optionKey="id" optionValue="${{it.searchParams.name + '  ' + it.resultDate}}"
 							name="resultsnames" from="${GrepSearchResult.list()}" multiple="true" />
 					</td>
 				</tr>
 				
 
 				<tr class="odd">
-					<td colspan="2"><g:submitButton name="graph" value="graph"
+					<td colspan="2"><g:submitButton name="graph" value="Graph based on existing results"
 							class="buttons" /></td>
 				</tr>
 
