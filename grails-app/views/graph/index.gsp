@@ -54,10 +54,10 @@
 				<tr class="even">
 					<td><label for="resultsnames">Or compare existing results</label></td>
 					<td><g:select optionKey="id" optionValue="${{it.searchParams.name + '  ' + it.resultDate}}"
-							name="resultsnames" from="${GrepSearchResult.list()}" multiple="true" />
+							name="resultsnames" from="${GrepSearchResult.list().unique()}" multiple="true" />
 					</td>
 				</tr>
-				
+			
 
 				<tr class="odd">
 					<td colspan="2"><g:submitButton name="graph" value="Graph based on existing results"

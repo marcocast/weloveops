@@ -25,7 +25,7 @@
 		<table>
 			<thead>
 				<tr>
-				
+
 					<g:sortableColumn property="resultDate" title="Result date" />
 
 					<g:sortableColumn property="profilesNames" title="Profile Names" />
@@ -44,13 +44,12 @@
 				<g:each in="${grepSearchResultInstanceList}" status="i"
 					var="grepSearchResultInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+
 						<td>
 							${fieldValue(bean: grepSearchResultInstance, field: "resultDate")}
 						</td>
 
-						<td>
-						<g:each in="${grepSearchResultInstance.searchParams}"
+						<td><g:each in="${grepSearchResultInstance.searchParams}"
 								status="sinlge" var="searchParams">
 								<g:link controller="searchParams" action="show"
 									id="${fieldValue(bean: searchParams, field: "id")}">
@@ -58,12 +57,18 @@
 								</g:link>
 
 							</g:each></td>
-													
+
 						<td>
 							${fieldValue(bean: grepSearchResultInstance, field: "totalMatches")}
 						</td>
 
-						<td><g:link action="show" id="${grepSearchResultInstance.id}">Show result</g:link></td>
+
+						<td><g:each in="${grepSearchResultInstance.searchParams}"
+								status="sinlge" var="searchParams">
+								<g:link action="show"
+									id="${fieldValue(bean: searchParams, field: "id")}">Show result</g:link>
+							</g:each></td>
+
 
 					</tr>
 				</g:each>

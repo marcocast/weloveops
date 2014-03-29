@@ -12,11 +12,16 @@ class GrepSearchResultController {
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		respond GrepSearchResult.list(params), model:[grepSearchResultInstanceCount: GrepSearchResult.count()]
+		respond GrepSearchResult.list(params).unique(), model:[grepSearchResultInstanceCount: GrepSearchResult.list(params).unique().size()]
 	}
 
-	def show(GrepSearchResult grepSearchResultInstance) {
-		respond grepSearchResultInstance
+	def show(SearchParams searchParams) {
+		respond GrepSearchResult.executeQuery("select a from GrepSearchResult a " +
+				"where a.searchParams.id = ? and a.resultDate = ?",
+				[
+					searchParams.id,
+					searchParams.searchDate
+				])
 	}
 
 

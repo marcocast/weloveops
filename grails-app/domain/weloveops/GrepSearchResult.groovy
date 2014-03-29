@@ -1,6 +1,6 @@
 package weloveops;
 
-class GrepSearchResult {
+class GrepSearchResult implements Comparable {
 
 	static hasMany = [results: GrepSearchSingleProfileResult]
 	String result
@@ -12,6 +12,16 @@ class GrepSearchResult {
 	static constraints = {
 		result(maxSize: 1000000)
 		resultDate defaultValue: "now()"
+	}
+
+
+
+	int compareTo(Object other) {
+		if((searchParams.id <=> other.searchParams.id) == 0){
+			return resultDate.compareTo(other.resultDate);
+		}else{
+			return 1;
+		}
 	}
 }
 

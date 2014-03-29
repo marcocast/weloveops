@@ -48,7 +48,7 @@ class GrepService {
 
 		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
 		grepsearchResult.text = searchText
-		grepsearchResult.resultDate = new Date()
+		grepsearchResult.resultDate = searchParams.searchDate
 		grepsearchResult.searchParams = searchParams
 
 
