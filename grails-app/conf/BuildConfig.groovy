@@ -63,6 +63,8 @@ grails.project.dependency.resolution = {
 		compile ":cache:1.1.1"
 		compile ":google-visualization:0.6.2"
 		compile ":jquery-ui:1.10.3"
+		compile ":quartz:1.0.1"
+		compile ":quartz-monitor:0.3-RC3"
 
 		// plugins needed at runtime but not for compilation
 		runtime ":hibernate:3.6.10.8" // or ":hibernate4:4.3.1.1"

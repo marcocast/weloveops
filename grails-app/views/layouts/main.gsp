@@ -116,7 +116,7 @@ p {
 			<li><g:link controller="search">Search your stuff</g:link></li>
 			<li><g:link controller="grepSearchResult">Already searched stuff</g:link></li>
 			<li><g:link controller="searchParams">Manage your searches</g:link></li>
-			<li><g:link controller="search">Schedule jobs and relax</g:link></li>
+			<li><g:link controller="scheduledSearch">Schedule jobs and relax</g:link></li>
 			<li><g:link controller="graph">See some cool graph</g:link></li>
 			<li><g:link controller="wloProfile">Create some profile</g:link></li>
 		</ul>
