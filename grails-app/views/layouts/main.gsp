@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en" class="no-js">
-<!--<![endif]-->
+<html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -22,6 +17,25 @@
 	type="text/css">
 <link rel="stylesheet"
 	href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'sb-admin.css')}" type="text/css">
+
+<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'font-awesome.css')}"
+	type="text/css">
+	
+	<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'font-awesome-min.css')}"
+	type="text/css">
+
+<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'morris-0.4.3.min.css')}"
+	type="text/css">
+<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'timeline.css')}" type="text/css">
+
+
+
 <g:layoutHead />
 <g:javascript library="application" />
 <r:layoutResources />
@@ -100,35 +114,83 @@ p {
 	}
 }
 </style>
+
 </head>
+
 <body>
 
-	<div id="grailsLogo" role="banner">
-		<a href="/"><img
+	<div id="wrapper">
+
+		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+			style="margin-bottom: 0">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a  href="/"><img
 			src="${resource(dir: 'images', file: 'lastlogo.png')}"
 			alt="Grails" /></a>
-	</div>
-	<a href="#page-body" class="skip"><g:message
-			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-	<div id="status" role="complementary">
-		<h1>Here is what you can do</h1>
-		<ul>
-			<li><g:link controller="search">Search your stuff</g:link></li>
-			<li><g:link controller="grepSearchResult">Already searched stuff</g:link></li>
-			<li><g:link controller="searchParams">Manage your searches</g:link></li>
-			<li><g:link controller="scheduledSearch">Schedule jobs and relax</g:link></li>
-			<li><g:link controller="graph">See some cool graph</g:link></li>
-			<li><g:link controller="wloProfile">Create some profile</g:link></li>
-		</ul>
-	</div>
-	<div id="page-body" role="main">
-		<g:layoutBody />
-	</div>
+			</div>
+			<!-- /.navbar-header -->
 
-	<div class="footer" role="contentinfo"></div>
-	<div id="spinner" class="spinner" style="display: none;">
-		<g:message code="spinner.alt" default="Loading&hellip;" />
+			
+
+		</nav>
+		<!-- /.navbar-static-top -->
+
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+					
+					<li><g:link controller="search">Search your stuff</g:link></li>
+					<li><g:link controller="grepSearchResult">Already searched stuff</g:link></li>
+					<li><g:link controller="searchParams">Manage your searches</g:link></li>
+					<li><g:link controller="scheduledSearch">Schedule jobs and relax</g:link></li>
+					<li><g:link controller="graph">See some cool graph</g:link></li>
+					<li><g:link controller="wloProfile">Create some profile</g:link></li>
+				</ul>
+				<!-- /#side-menu -->
+			</div>
+			<!-- /.sidebar-collapse -->
+		</nav>
+		<!-- /.navbar-static-side -->
+
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="page-header"></h1>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+			<!-- /.row -->
+			<div class="row">
+				<g:layoutBody />
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /#page-wrapper -->
+
 	</div>
+	<!-- /#wrapper -->
+
+	<!-- Core Scripts - Include with every page -->
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+	<!-- Page-Level Plugin Scripts - Dashboard -->
+	<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+	<script src="js/plugins/morris/morris.js"></script>
+
+	<!-- SB Admin Scripts - Include with every page -->
+	<script src="js/sb-admin.js"></script>
+
+	<!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+	<script src="js/demo/dashboard-demo.js"></script>
 	<r:layoutResources />
 </body>
+
 </html>

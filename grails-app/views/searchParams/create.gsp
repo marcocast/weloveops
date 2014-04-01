@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="main" />
+<r:require modules="bootstrap" />
 		<g:set var="entityName" value="${message(code: 'searchParams.label', default: 'SearchParams')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>

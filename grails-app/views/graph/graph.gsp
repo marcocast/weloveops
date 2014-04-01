@@ -5,7 +5,8 @@
 
 
 <title>result page</title>
-<meta name="layout" content="main">
+<meta name="layout" content="main" />
+<r:require modules="bootstrap" />
 
 </head>
 <body>

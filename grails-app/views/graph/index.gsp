@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta name="layout" content="main" />
+<r:require modules="bootstrap" />
 <g:set var="entityName"
 	value="${message(code: 'wloProfile.label', default: 'WloProfile')}" />
 <title>text to search</title>

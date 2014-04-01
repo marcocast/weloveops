@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="main" />
+<r:require modules="bootstrap" />
 		<g:set var="entityName" value="${message(code: 'wloProfile.label', default: 'WloProfile')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>

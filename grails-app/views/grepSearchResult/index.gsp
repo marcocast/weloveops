@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="layout" content="main">
+<meta name="layout" content="main" />
+<r:require modules="bootstrap" />
 <g:set var="entityName"
 	value="${message(code: 'grepSearchResult.label', default: 'GrepSearchResult')}" />
 <title><g:message code="default.list.label" args="[entityName]" /></title>

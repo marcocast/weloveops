@@ -65,6 +65,7 @@ grails.project.dependency.resolution = {
 		compile ":jquery-ui:1.10.3"
 		compile ":quartz:1.0.1"
 		compile ":quartz-monitor:0.3-RC3"
+		compile ":twitter-bootstrap:3.1.1"
 
 		// plugins needed at runtime but not for compilation
 		runtime ":hibernate:3.6.10.8" // or ":hibernate4:4.3.1.1"
@@ -72,6 +73,7 @@ grails.project.dependency.resolution = {
 		runtime ":jquery:1.10.2"
 		runtime ":resources:1.2"
 		runtime ":prototype:1.0"
+		runtime ':twitter-bootstrap:3.0.3'
 
 		// Uncomment these (or add new ones) to enable additional resources capabilities
 		//runtime ":zipped-resources:1.0.1"

@@ -3,8 +3,8 @@
 <head>
 <g:javascript library="jquery" />
 <title>result page</title>
-<meta name="layout" content="main">
-</head>
+<meta name="layout" content="main" />
+<r:require modules="bootstrap" /></head>
 <body>
 
 	<div class="nav" role="navigation">
