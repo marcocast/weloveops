@@ -10,6 +10,7 @@ class GrepSearchResult implements Comparable {
 	SearchParams searchParams
 
 	static constraints = {
+		result blank: true, nullable: true
 		result(maxSize: 1000000)
 		resultDate defaultValue: "now()"
 	}

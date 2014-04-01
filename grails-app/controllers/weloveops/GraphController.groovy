@@ -28,7 +28,7 @@ class GraphController {
 		for(GrepSearchSingleProfileResult singleResult : grepsearchResult.results){
 
 			myDailyActivitiesData.add([
-				(singleResult.profileName + " - " +singleResult.fileName),
+				(singleResult.grepSearchResult.searchParams.name + " - " +singleResult.fileName),
 				singleResult.totalMatches
 			])
 		}
@@ -54,7 +54,7 @@ class GraphController {
 				for(GrepSearchSingleProfileResult singleResult : GrepSearchResult.findById(String.valueOf(one)).results){
 
 					myDailyActivitiesData.add([
-						(singleResult.profileName + " - " +singleResult.fileName),
+						(singleResult.grepSearchResult.searchParams.name + " - " +singleResult.fileName),
 						singleResult.totalMatches
 					])
 				}

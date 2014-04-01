@@ -9,7 +9,9 @@ class GrepSearchSingleProfileResult {
 	String result;
 	long totalMatches;
 
-	static constraints =
-	{ result(maxSize: 1000000) }
+	static constraints = {
+		result blank: true, nullable: true
+		result(maxSize: 1000000)
+	}
 }
 

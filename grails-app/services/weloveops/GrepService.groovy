@@ -33,7 +33,6 @@ class GrepService {
 		}
 		searchText = searchParams.text
 
-
 		List<Profile> profiles = profileConverterService.convertWloProfilesToGrep4jProfiles(selectedWloProfiles)
 
 		GrepExpression grepExpression;
@@ -46,7 +45,7 @@ class GrepService {
 
 		GrepResults results = grep(grepExpression, on(profiles));
 
-		GrepSearchResult grepsearchResult = new GrepSearchResult(result: results.toString() ,totalMatches: results.totalLines())
+		GrepSearchResult grepsearchResult = new GrepSearchResult(result: cutIfTooBig(results.toString()) ,totalMatches: results.totalLines())
 		grepsearchResult.text = searchText
 		grepsearchResult.resultDate = searchParams.searchDate
 		grepsearchResult.searchParams = searchParams
@@ -54,7 +53,7 @@ class GrepService {
 
 		for(GrepResult grepResult : results){
 			GrepSearchSingleProfileResult singleResult = new GrepSearchSingleProfileResult()
-			singleResult.result = grepResult.text
+			singleResult.result = cutIfTooBig(grepResult.text)
 			singleResult.profileName = grepResult.getProfileName()
 			singleResult.fileName = grepResult.getFileName()
 			singleResult.totalMatches = grepResult.totalLines()
@@ -64,5 +63,13 @@ class GrepService {
 		grepsearchResult.save()
 
 		return grepsearchResult
+	}
+
+	def cutIfTooBig(String text){
+		if(text.length() > 1000000){
+			return text.substring(0, 1000000);
+		}else{
+			return text
+		}
 	}
 }

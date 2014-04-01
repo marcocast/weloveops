@@ -10,10 +10,11 @@ class SearchController {
 	weloveops.GrepService grepService;
 	weloveops.SearchParamsService searchParamsService;
 
-
 	def executeSearch(){
 
 		GrepSearchResult grepsearchResult = grepService.grepBasedOnSearchParams(params)
+
+		print GrepSearchResult.list()
 
 		render (template: "result", model: [grepsearchResult: grepsearchResult])
 	}
