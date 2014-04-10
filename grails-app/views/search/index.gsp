@@ -11,42 +11,54 @@
 
 </head>
 <body>
-	<div class="nav" role="navigation">
-		<g:form action="search" id="formSearch">
-			<table>
-				<tr class="even">
-					<td colspan="2"><g:textField name="searchText" value="" /></td>
-				</tr>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="form-group">
+
+				<g:form action="search" id="formSearch">
 
 
-				<tr class="odd">
-					<td><label for=regex>regex</label></td>
-					<td><g:checkBox name="regex" value="${true}" /></td>
-				</tr>
+					<div class="form-group">
+						<label>Search Text</label> <input class="form-control"
+							name="searchText" placeholder="Enter text">
+					</div>
+					<div class="form-group">
+
+						<div class="checkbox">
+							<label> <g:checkBox name="regex" value="${true}"/>I'm using a regular expression text
+							</label>
+						</div>
+					</div>
 
 
-				<tr class="even">
-					<td><label for=pnames>Select an existing Profile(s)</label></td>
-					<td><g:select optionKey="id" optionValue="name" name="pnames"
-							from="${wloProfileInstanceList}" multiple="true" /></td>
-				</tr>	
 
-				<tr class="odd">
-					<td><label for="searchnames">Or just select an
-							existing search</label></td>
-					<td><g:select optionKey="id" optionValue="name"
-							name="searchnames" from="${SearchParams.list()}" multiple="false" />
-					</td>
-				</tr>
+					<div class="form-group">
+						<label>Select profile(s)</label>
+						<g:select class="form-control" optionKey="id" optionValue="name"
+							name="pnames" from="${wloProfileInstanceList}" multiple="true" />
+					</div>
 
-				<tr class="even">
-					<td colspan="2"><g:submitButton name="execute" value="search"
-							class="buttons" /></td>
-				</tr>
 
-			</table>
+					<div class="form-group">
+						<label>Or just select a search that you want to replay</label> <select
+							class="form-control" name="searchnames">
+							<option value="none"></option>
+							<g:each in="${SearchParams.list().unique()}" status="index"
+								var="existingSearchParams">
+								<option value="${existingSearchParams.id}">${existingSearchParams.name}</option>
+							</g:each>
 
-		</g:form>
+						</select>
+					</div>
+
+
+								
+								
+					<button type="submit" class="btn btn-default">Execute Search</button>
+				</g:form>
+
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -10,20 +10,14 @@ class GrepSearchResultController {
 
 
 
-	def index(Integer max) {
-		params.max = Math.min(max ?: 10, 100)
-
+	def index() {
 		respond GrepSearchResult.list(params).unique(), model:[grepSearchResultInstanceCount: GrepSearchResult.list(params).unique().size()]
 	}
 
-	def show(SearchParams searchParams) {
-		respond GrepSearchResult.executeQuery("select a from GrepSearchResult a " +
-				"where a.searchParams.id = ? and a.resultDate = ?",
-				[
-					searchParams.id,
-					searchParams.searchDate
-				])
+	def show(GrepSearchResult grepSearchResultInstance) {
+		respond grepSearchResultInstance
 	}
+
 
 
 	protected void notFound() {

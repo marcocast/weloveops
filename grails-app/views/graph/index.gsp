@@ -12,62 +12,76 @@
 
 </head>
 <body>
-	<div class="nav" role="navigation">
-		<g:form action="graph" id="formSearch">
-			<table>
-				<tr class="even">
-					<td colspan="2"><g:textField name="searchText" value="" /></td>
-				</tr>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="form-group">
+
+				<g:form action="graph" id="formSearch">
 
 
-				<tr class="odd">
-					<td><label for=regex>regex</label></td>
-					<td><g:checkBox name="regex" value="${true}" /></td>
-				</tr>
+
+					<div class="form-group">
+						<label>Search Text</label> <input class="form-control"
+							name="searchText" placeholder="Enter text">
+					</div>
+					<div class="form-group">
+
+						<div class="checkbox">
+							<label> <g:checkBox name="regex" value="${true}" />I'm
+								using a regular expression text
+							</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label>Select profile(s)</label>
+						<g:select class="form-control" optionKey="id" optionValue="name"
+							name="pnames" from="${wloProfileInstanceList}" multiple="true" />
+					</div>
 
 
-				<tr class="even">
-					<td><label for=pnames>Select an existing Profile(s)</label></td>
-					<td><g:select optionKey="id" optionValue="name" name="pnames"
-							from="${wloProfileInstanceList}" multiple="true" /></td>
-				</tr>
+					<div class="form-group">
+						<label>Or just select a search that you want to replay</label> <select
+							class="form-control" optionKey="id" optionValue="name"
+							name="searchnames">
+							<option value="none"></option>
+							<g:each in="${SearchParams.list().unique()}" status="index"
+								var="existingSearchParams">
+								<option value="${existingSearchParams.id}">
+									${existingSearchParams.name}
+								</option>
+							</g:each>
 
+						</select>
+					</div>
 
-				<tr class="odd">
-					<td><label for="searchnames">Or just select an
-							existing search</label></td>
-					<td><g:select optionKey="id" optionValue="name"
-							name="searchnames" from="${SearchParams.list()}" multiple="false" />
-					</td>
-				</tr>
+					<button type="submit" class="btn btn-default">Generate Graph</button>
+				</g:form>
 
-				<tr class="even">
-					<td colspan="2"><g:submitButton name="graph" value="graph"
-							class="buttons" /></td>
-				</tr>
+			</div>
+		</div>
 
-			</table>
+		<div class="col-lg-6">
+			<div class="form-group">
 
-		</g:form>
-		<g:form action="graphOnResults" id="formGraphOnResuls">
-			<table>
-			
-				<tr class="even">
-					<td><label for="resultsnames">Or compare existing results</label></td>
-					<td><g:select optionKey="id" optionValue="${{it.searchParams.name + '  ' + it.resultDate}}"
-							name="resultsnames" from="${GrepSearchResult.list().unique()}" multiple="true" />
-					</td>
-				</tr>
-			
+				<g:form action="graphOnResults" id="formGraphOnResuls">
 
-				<tr class="odd">
-					<td colspan="2"><g:submitButton name="graph" value="Graph based on existing results"
-							class="buttons" /></td>
-				</tr>
+					<div class="form-group">
+						<label>Existing results</label>
+						<g:select class="form-control" optionKey="id"
+							optionValue="${{it.searchParams.name + '('+it.results.first().profileName+') ' + it.resultDate + ' '}}"
+							name="resultsnames" from="${GrepSearchResult.list().unique()}"
+							multiple="true" />
+					</div>
 
-			</table>
+					<button type="submit" class="btn btn-default">Generate Graph based on existing result</button>
+				</g:form>
 
-		</g:form>
+			</div>
+		</div>
 	</div>
+
+
+
 </body>
 </html>

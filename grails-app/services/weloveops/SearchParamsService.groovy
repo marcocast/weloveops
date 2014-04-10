@@ -3,6 +3,7 @@ package weloveops
 import grails.transaction.Transactional
 
 
+
 @Transactional
 class SearchParamsService {
 
@@ -25,15 +26,17 @@ class SearchParamsService {
 
 		SearchParams searchParams;
 
-		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty()){
-			searchParams= SearchParams.getAll(params.list("searchnames")).first()
+		if(params.list("searchnames") != null && !params.list("searchnames").isEmpty() && params.searchnames != "none"){
+			searchParams = SearchParams.getAll(params.list("searchnames")).first()
+			searchParams = SearchParams.findByName(searchParams.name)
 			searchParams.searchDate = new Date()
 			searchParams.save()
 		}else{
 			searchParams = mapToSearchParams(params)
-			if(SearchParams.findByName(searchParams.name) == null){
-				searchParams.save()
-			}
+			searchParams.save()
+			searchParams = SearchParams.findByName(searchParams.name)
+			searchParams.searchDate = new Date()
+			searchParams.save()
 		}
 
 		return searchParams

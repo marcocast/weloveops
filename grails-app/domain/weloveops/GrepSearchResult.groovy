@@ -18,7 +18,7 @@ class GrepSearchResult implements Comparable {
 
 
 	int compareTo(Object other) {
-		if((searchParams.id <=> other.searchParams.id) == 0){
+		if((searchParams.id <=> other.searchParams.id) == 0 && results.unique(false) == other.results){
 			return resultDate.compareTo(other.resultDate);
 		}else{
 			return 1;

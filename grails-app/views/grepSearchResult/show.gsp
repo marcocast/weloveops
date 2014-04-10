@@ -14,8 +14,8 @@
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
 	<div class="nav" role="navigation">
 		<table class="result">
-			<g:each in="${grepSearchResultInstanceList}" status="index" var="result">
-				<g:each in="${result.results}" status="i" var="singleResult">
+			
+				<g:each in="${grepSearchResultInstance.results}" status="i" var="singleResult">
 					<div role="main" class="result">
 						<table class="result">
 							<tr>
@@ -31,7 +31,7 @@
 						</table>
 					</div>
 				</g:each>
-			</g:each>
+			
 		</table>
 	</div>
 </body>

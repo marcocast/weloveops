@@ -48,10 +48,12 @@ class GraphController {
 		def myDailyActivitiesData = [];
 
 
-		for(char one : params.selectedresultsnames.toCharArray()){
+		for(Long id : getIds(params)){
+			GrepSearchResult foundResult = GrepSearchResult.findById(id)
 
-			if(isNumeric(one)){
-				for(GrepSearchSingleProfileResult singleResult : GrepSearchResult.findById(String.valueOf(one)).results){
+			if(foundResult != null){
+
+				for(GrepSearchSingleProfileResult singleResult : foundResult.results){
 
 					myDailyActivitiesData.add([
 						(singleResult.grepSearchResult.searchParams.name + " - " +singleResult.fileName),
@@ -62,7 +64,26 @@ class GraphController {
 		}
 
 
+
 		render template: "chart", model: ["myDailyActivitiesColumns": myDailyActivitiesColumns,	"myDailyActivitiesData": myDailyActivitiesData]
+	}
+
+	def getIds(params){
+		List<Long> allIds = new ArrayList<Long>();
+
+
+		String theId = "";
+		for(char one : params.selectedresultsnames.toCharArray()){
+
+			if(isNumeric(one)){
+				theId += one
+			}else if(one == ',' || one == ']'){
+				allIds.add(new Long(theId))
+				theId=""
+			}
+		}
+
+		return allIds
 	}
 
 

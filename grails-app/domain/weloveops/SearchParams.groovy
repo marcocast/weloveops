@@ -1,7 +1,7 @@
 package weloveops
 
 
-class SearchParams {
+class SearchParams implements Comparable {
 
 	String name
 	static hasMany = [profiles: WloProfile]
@@ -10,5 +10,9 @@ class SearchParams {
 	Date searchDate
 
 	static constraints = {
+	}
+
+	int compareTo(Object other) {
+		return name.compareTo(other.name);
 	}
 }
